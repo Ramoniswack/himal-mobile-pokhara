@@ -2,6 +2,7 @@ import { Navigation } from "@/components/ui/navigation";
 import { HeroSection } from "@/components/ui/hero-section";
 import { ServicesSection } from "@/components/ui/services-section";
 import { AboutSection } from "@/components/ui/about-section";
+import { FacebookPosts } from "@/components/ui/facebook-posts";
 import { ContactSection } from "@/components/ui/contact-section";
 
 const Index = () => {
@@ -27,6 +28,10 @@ const Index = () => {
         
         <section id="about">
           <AboutSection />
+        </section>
+        
+        <section id="facebook">
+          <FacebookPosts />
         </section>
         
         <ContactSection />

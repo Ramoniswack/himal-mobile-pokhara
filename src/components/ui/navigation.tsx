@@ -53,6 +53,12 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               About
             </button>
             <button 
+              onClick={() => scrollToSection('facebook')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Facebook
+            </button>
+            <button 
               onClick={() => scrollToSection('contact')}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
@@ -107,6 +113,12 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 className="text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
               >
                 About
+              </button>
+              <button 
+                onClick={() => scrollToSection('facebook')}
+                className="text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Facebook
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}

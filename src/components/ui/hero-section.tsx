@@ -33,8 +33,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             {/* Owner Info Card */}
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 p-6 max-w-md">
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center border border-white/30">
-                  <span className="text-white font-semibold text-sm">Photo</span>
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center border border-white/30 overflow-hidden">
+                  <div className="w-full h-full bg-gradient-primary rounded-full flex items-center justify-center">
+                    <span className="text-white font-semibold text-xs">Owner</span>
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-white font-semibold text-lg">Roshan Raj Tiwari Himal</h3>
@@ -79,11 +81,9 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           {/* Right Content - Store Image */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant animate-float">
-              <img 
-                src={storeInterior} 
-                alt="Himal Mobile Traders Store Interior" 
-                className="w-full h-auto object-cover"
-              />
+              <div className="w-full h-96 bg-gradient-primary rounded-2xl flex items-center justify-center">
+                <span className="text-white text-lg font-semibold">Store Interior Photo</span>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
             

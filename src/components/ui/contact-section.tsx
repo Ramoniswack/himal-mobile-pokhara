@@ -148,13 +148,18 @@ export const ContactSection = () => {
                       <TikTokIcon className="w-6 h-6 text-black" />
                       <span className="font-medium">TikTok Videos</span>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => window.open('https://www.tiktok.com/@himal_mobile_traders?_t=ZS-8zTrpojmaD1&_r=1', '_blank')}
+                    <a 
+                      href='https://www.tiktok.com/@himal_mobile_traders?_t=ZS-8zTrpojmaD1&_r=1'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Follow
-                    </Button>
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                      >
+                        Follow
+                      </Button>
+                    </a>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                     <div className="flex items-center space-x-3">

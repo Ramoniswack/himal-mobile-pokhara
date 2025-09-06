@@ -1,0 +1,45 @@
+User-agent: *
+Allow: /
+
+# Sitemap files
+Sitemap: https://www.himalmobile.com.np/sitemap.xml
+
+# Optimized crawling for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+# Optimized crawling for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+# Optimized crawling for mobile bot
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 5
+
+# Block specific folders
+Disallow: /private/
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /temp/
+Disallow: /assets/raw/
+Disallow: /*.json$
+
+# Allow image crawling
+User-agent: Googlebot-Image
+Allow: /photos/
+Allow: /products/
+Allow: /assets/images/
+
+# Important paths for crawlers
+Allow: /products/
+Allow: /services/
+Allow: /about/
+Allow: /contact/
+Allow: /emi-options/
+Allow: /gallery/
+
+# Host directive
+Host: https://www.himalmobile.com.np

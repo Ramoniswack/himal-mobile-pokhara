@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" 
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" 
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.himalmobile.com.np/</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/shop-image.png</image:loc>
+      <image:caption>Himal Mobile Traders Store Front</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Products Page -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- iPhone Category -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/iphone</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/apple-phones.jpeg</image:loc>
+      <image:caption>Latest Apple iPhones in Pokhara</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- iPhone Specific Models -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/iphone/iphone-15-pro-max</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/iphone-15-pro-max.jpg</image:loc>
+      <image:caption>iPhone 15 Pro Max Price in Pokhara Nepal</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/iphone/iphone-15-pro</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/iphone/iphone-15</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/iphone/iphone-14-series</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Samsung Category -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/samsung</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/phones.jpeg</image:loc>
+      <image:caption>Samsung Galaxy Phones in Nepal</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Samsung Specific Models -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/samsung/galaxy-s24-ultra</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/s24-ultra.jpg</image:loc>
+      <image:caption>Samsung S24 Ultra Price in Nepal</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/samsung/galaxy-z-fold</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/samsung/galaxy-a-series</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Other Brands -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/xiaomi</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/oneplus</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/vivo</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/oppo</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Accessories Category -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/accessories</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Specific Accessories -->
+  <url>
+    <loc>https://www.himalmobile.com.np/products/accessories/cases</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/accessories/screen-protectors</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/accessories/chargers</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/products/accessories/power-banks</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://www.himalmobile.com.np/services</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Repair Services -->
+  <url>
+    <loc>https://www.himalmobile.com.np/services/repair</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Specific Repair Services -->
+  <url>
+    <loc>https://www.himalmobile.com.np/services/repair/screen-replacement</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/screen-replacement.jpg</image:loc>
+      <image:caption>Phone Screen Replacement in Pokhara</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/services/repair/battery-replacement</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/services/repair/water-damage</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.himalmobile.com.np/services/repair/software-issues</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- EMI Services -->
+  <url>
+    <loc>https://www.himalmobile.com.np/services/emi</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/emi-service.jpg</image:loc>
+      <image:caption>Mobile Phone EMI Options in Nepal</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Exchange Services -->
+  <url>
+    <loc>https://www.himalmobile.com.np/services/exchange</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- About Us -->
+  <url>
+    <loc>https://www.himalmobile.com.np/about</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Contact -->
+  <url>
+    <loc>https://www.himalmobile.com.np/contact</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.himalmobile.com.np/photos/pokhara-mobile-tower.png</image:loc>
+      <image:caption>Pokhara Mobile Tower Location</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Blog/News -->
+  <url>
+    <loc>https://www.himalmobile.com.np/blog</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- EMI Page -->
+  <url>
+    <loc>https://www.himalmobile.com.np/emi-options</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Gallery -->
+  <url>
+    <loc>https://www.himalmobile.com.np/gallery</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

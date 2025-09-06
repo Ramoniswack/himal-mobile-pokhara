@@ -9,7 +9,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
-  const [storeStatus, setStoreStatus] = useState<{isOpen: boolean, message: string}>({
+  const [storeStatus, setStoreStatus] = useState<{ isOpen: boolean, message: string }>({
     isOpen: false,
     message: "Checking..."
   });
@@ -51,7 +51,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-secondary/30"></div>
       </div>
-      
+
       {/* Decorative elements */}
       <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
       <div className="absolute bottom-32 left-16 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
@@ -71,17 +71,25 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 हिमाल मोबाइल ट्रेडर्स
               </div>
               <p className="text-xl lg:text-2xl text-white/95 max-w-lg drop-shadow-md">
-                Your trusted mobile phone destination in Pokhara
+                #1 iPhone & Samsung Store in Pokhara | EMI Available
               </p>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="bg-white/20 backdrop-blur-sm text-white text-xs py-1 px-2 rounded-full">iPhone 15 Pro Max</span>
+                <span className="bg-white/20 backdrop-blur-sm text-white text-xs py-1 px-2 rounded-full">Samsung S24 Ultra</span>
+                <span className="bg-white/20 backdrop-blur-sm text-white text-xs py-1 px-2 rounded-full">EMI Facility</span>
+                <span className="bg-white/20 backdrop-blur-sm text-white text-xs py-1 px-2 rounded-full">Phone Repairs</span>
+                <span className="bg-white/20 backdrop-blur-sm text-white text-xs py-1 px-2 rounded-full">Accessories</span>
+              </div>
             </div>
 
             {/* Owner Info Card */}
             <Card className="bg-white/15 backdrop-blur-lg border-white/25 p-6 max-w-md shadow-elegant">
               <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/30 overflow-hidden bg-white/10">
-                  <img 
-                    src="/photos/owner.png" 
-                    alt="Roshan Raj Tiwari - Owner" 
+                  <img
+                    src="/photos/owner.png"
+                    alt="Roshan Raj Tiwari - Owner of Himal Mobile Traders in Pokhara"
+                    title="Roshan Raj Tiwari - Owner & Proprietor of Himal Mobile Traders"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -103,22 +111,27 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-white text-primary hover:bg-white/95 shadow-lg font-semibold px-8 py-3 transition-all duration-300 transform hover:scale-105"
                 onClick={onContactClick}
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Contact Us
               </Button>
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/95 shadow-lg font-semibold px-8 py-3 transition-all duration-300 transform hover:scale-105"
-                onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+              <a
+                href="https://maps.app.goo.gl/QBKSe6YD7HEovPs49"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <MapPin className="w-5 h-5 mr-2" />
-                Visit Store
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/95 shadow-lg font-semibold px-8 py-3 transition-all duration-300 transform hover:scale-105"
+                >
+                  <MapPin className="w-5 h-5 mr-2" />
+                  Visit Store
+                </Button>
+              </a>
             </div>
 
             {/* Quick Info */}
@@ -140,9 +153,10 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
           <div className="relative">
             {/* Main Store Image - Bigger and Mobile Responsive */}
             <div className="relative overflow-hidden rounded-2xl shadow-elegant animate-float">
-              <img 
-                src="/photos/shop-image.png" 
-                alt="Himal Mobile Traders Store Front" 
+              <img
+                src="/photos/shop-image.png"
+                alt="Best iPhone & Samsung Store in Pokhara - Himal Mobile Traders Storefront at Mahendrapool"
+                title="Himal Mobile Traders - Premium Mobile Phone Shop in Pokhara"
                 className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -154,26 +168,27 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
-              
+
               {/* Store Name Overlay */}
               <div className="absolute bottom-4 left-4 text-white">
                 <h3 className="text-lg md:text-xl font-bold drop-shadow-lg">हिमाल मोबाइल ट्रेडर्स</h3>
                 <p className="text-xs md:text-sm opacity-90 drop-shadow-md">Pokhara</p>
               </div>
             </div>
-            
-            {/* EMI UPDATED - Your Requirements */}
+
+            {/* EMI UPDATED - SEO Optimized */}
             <div className="mt-4 bg-orange-50 border-2 border-orange-200 rounded-lg p-4">
               <div className="text-center">
-                <h4 className="font-bold text-lg text-orange-900 mb-2">EMI Available</h4>
-                <p className="text-base text-orange-800 mb-3">iPhone with EMI Facility</p>
+                <h4 className="font-bold text-lg text-orange-900 mb-2">EMI Available in Pokhara</h4>
+                <p className="text-base text-orange-800 mb-3">iPhone 15 Pro, Samsung S24 & More With EMI</p>
                 <div className="text-sm text-orange-700 space-y-1">
                   <div className="font-semibold">Credit Card: 0% Down Payment</div>
                   <div className="font-semibold">Without Credit Card: 40% Down Payment</div>
+                  <div className="mt-2 text-xs text-orange-600">Official Warranty & Genuine Products</div>
                 </div>
               </div>
             </div>
-            
+
             {/* FORCED UPDATE - New Numbers */}
             <div className="absolute bottom-4 md:bottom-6 -left-2 md:-left-6 bg-blue-500 rounded-lg md:rounded-xl p-3 shadow-lg animate-float z-10" style={{ animationDelay: '1s' }}>
               <div className="text-center">
@@ -181,7 +196,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 <div className="text-xs text-white whitespace-nowrap">Happy Customers</div>
               </div>
             </div>
-            
+
             <div className="absolute -top-4 md:-top-6 -right-2 md:-right-6 bg-green-500 rounded-lg md:rounded-xl p-3 shadow-lg animate-float z-10" style={{ animationDelay: '2s' }}>
               <div className="text-center">
                 <div className="text-xl font-bold text-white">13+</div>

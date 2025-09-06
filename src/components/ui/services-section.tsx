@@ -75,7 +75,7 @@ export const ServicesSection = () => {
             >
               <CardContent className="p-8">
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-4 group-hover:animate-glow">
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4 group-hover:shadow-lg transition-all duration-300">
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">

@@ -86,7 +86,7 @@ export const AboutSection = () => {
               className="text-center group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-primary/20"
             >
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
@@ -101,7 +101,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Achievements */}
-        <Card className="bg-gradient-primary text-white overflow-hidden relative">
+        <Card className="bg-secondary text-secondary-foreground overflow-hidden relative">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-white/10"></div>
           </div>
@@ -111,7 +111,7 @@ export const AboutSection = () => {
               <h3 className="text-3xl lg:text-4xl font-bold mb-4">
                 Our Achievements
               </h3>
-              <p className="text-white/90 text-lg max-w-2xl mx-auto">
+              <p className="text-secondary-foreground/90 text-lg max-w-2xl mx-auto">
                 Numbers that speak for our commitment to excellence and customer satisfaction
               </p>
             </div>
@@ -123,15 +123,15 @@ export const AboutSection = () => {
                   className="text-center group"
                 >
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/30 transition-colors">
-                    <achievement.icon className="w-8 h-8 text-white" />
+                    <achievement.icon className="w-8 h-8 text-secondary-foreground" />
                   </div>
                   <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform">
                     {achievement.number}
                   </div>
-                  <div className="text-xl font-semibold mb-2 text-white/90">
+                  <div className="text-xl font-semibold mb-2 text-secondary-foreground/90">
                     {achievement.label}
                   </div>
-                  <div className="text-white/70 text-sm">
+                  <div className="text-secondary-foreground/70 text-sm">
                     {achievement.description}
                   </div>
                 </div>
@@ -145,8 +145,21 @@ export const AboutSection = () => {
           <Card className="max-w-4xl mx-auto border-border/50">
             <CardContent className="p-12">
               <div className="mb-8">
-                <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-lg">RH</span>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden border-4 border-primary/20">
+                  <img 
+                    src="/photos/owner.png" 
+                    alt="Roshan Raj Tiwari Himal - Owner" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.className += ' bg-primary';
+                        parent.innerHTML = '<span class="text-white font-bold text-lg">RH</span>';
+                      }
+                    }}
+                  />
                 </div>
                 <h4 className="text-2xl font-bold text-foreground mb-2">
                   Roshan Raj Tiwari Himal

@@ -92,8 +92,8 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               <p className="text-xs text-muted-foreground">Call Now</p>
             </div>
             <Button 
-              onClick={onContactClick}
-              className="bg-gradient-primary hover:shadow-glow"
+              onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+              className="bg-primary text-white hover:bg-primary/90 transition-all duration-300"
             >
               <MapPin className="w-4 h-4 mr-2" />
               Visit Store
@@ -154,8 +154,8 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               <div className="pt-4 border-t border-border/50">
                 <p className="text-sm font-medium text-foreground mb-1">9856019988 | 9802855855</p>
                 <Button 
-                  onClick={onContactClick}
-                  className="w-full bg-gradient-primary hover:shadow-glow"
+                  onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+                  className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300"
                 >
                   <MapPin className="w-4 h-4 mr-2" />
                   Visit Store

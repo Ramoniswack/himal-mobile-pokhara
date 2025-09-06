@@ -8,7 +8,8 @@ import {
   Mail,
   Facebook,
   Instagram,
-  MessageCircle
+  MessageCircle,
+  Star
 } from "lucide-react";
 import storeFront from "@/assets/store-front.png";
 
@@ -61,7 +62,8 @@ export const ContactSection = () => {
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Address</h4>
                       <p className="text-muted-foreground">
-                        Mahendrapool, Pokhara<br />
+                        Pokhara Mobile Tower - Ground Floor<br />
+                        Mahendrapool, Pokhara-09<br />
                         Kaski, Nepal
                       </p>
                       <a 
@@ -82,8 +84,8 @@ export const ContactSection = () => {
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Store Hours</h4>
                       <p className="text-muted-foreground">
-                        Monday - Sunday: 9:00 AM - 8:00 PM<br />
-                        Always open for customer service
+                        Sun-Fri: 8:30 AM - 7:30 PM<br />
+                        Saturday: 10:00 AM - 6:30 PM
                       </p>
                     </div>
                   </div>
@@ -110,7 +112,7 @@ export const ContactSection = () => {
               </CardContent>
             </Card>
 
-            {/* Social Media Section */}
+            {/* Google Rating Section */}
             <Card className="border-border/50">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-foreground">Follow Us</h3>
@@ -130,6 +132,19 @@ export const ContactSection = () => {
                   </div>
                   <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                     <div className="flex items-center space-x-3">
+                      <Instagram className="w-6 h-6 text-pink-600" />
+                      <span className="font-medium">Instagram Photos</span>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open('https://www.instagram.com/himal_mobile_traders_pkr?igsh=MW5udWoxcXdsZTAxaQ==', '_blank')}
+                    >
+                      Follow
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
                       <TikTokIcon className="w-6 h-6 text-black" />
                       <span className="font-medium">TikTok Videos</span>
                     </div>
@@ -139,6 +154,20 @@ export const ContactSection = () => {
                       onClick={() => window.open('https://www.tiktok.com/@himal_mobile_traders?_t=ZS-8zTrpojmaD1&_r=1', '_blank')}
                     >
                       Follow
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <Star className="w-6 h-6 text-yellow-600" />
+                      <span className="font-medium">Rate us on Google</span>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white"
+                      onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+                    >
+                      Rate Now
                     </Button>
                   </div>
                   <div className="bg-muted/30 rounded-lg p-4">

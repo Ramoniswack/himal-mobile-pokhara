@@ -8,45 +8,52 @@ import {
   Headphones, 
   Shield,
   Truck,
-  Star
+  Star,
+  Package
 } from "lucide-react";
 
 const services = [
   {
     icon: Smartphone,
     title: "All Mobile Phones",
-    description: "Latest smartphones from all major brands including Apple, Samsung, Xiaomi, Vivo, Oppo, and more",
+    description: "Latest smartphones from 15+ major brands including Apple, Samsung, Xiaomi, Vivo, Oppo, OnePlus, Honor, Infinix and more",
     features: ["Latest Models", "Brand Warranty", "Best Prices"]
   },
   {
     icon: Headphones,
     title: "Mobile Accessories",
-    description: "Complete range of mobile accessories including cases, chargers, earphones, and screen protectors",
+    description: "Complete range of mobile accessories including cases, chargers, earphones, smartwatch, camera gadgets, tripod, earbuds and screen protectors",
     features: ["Original Accessories", "Wide Variety", "Quality Assured"]
   },
   {
     icon: Wrench,
     title: "Mobile Repair",
-    description: "Expert mobile phone repair services for all brands with genuine parts and quick turnaround",
+    description: "Expert mobile phone repair services for all brands including Apple iPhone repair with genuine parts and quick turnaround",
     features: ["Expert Technicians", "Genuine Parts", "Quick Service"]
   },
   {
     icon: RefreshCw,
     title: "Exchange Program",
-    description: "Trade in your old phone for a new one with attractive exchange values and instant processing",
-    features: ["Best Exchange Value", "Instant Processing", "Any Condition"]
+    description: "Trade in your old phone for a new one with attractive exchange values (iPhone-Android or vice versa, old-new or vice versa)",
+    features: ["Best Exchange Value", "Instant Processing", "Conditions Applied"]
   },
   {
     icon: CreditCard,
     title: "EMI Facilities",
-    description: "Buy your dream phone with easy EMI options and flexible payment plans",
-    features: ["0% Interest Options", "Flexible Terms", "Quick Approval"]
+    description: "Buy your dream phone with easy EMI options - 0% down payment with credit card or 40% down payment without credit card",
+    features: ["Credit Card: 0% Down", "No Credit Card: 40% Down", "Flexible Terms"]
   },
   {
     icon: Truck,
+    title: "Delivery Service",
+    description: "We do delivery service with cash on delivery option available for your convenience",
+    features: ["Home Delivery", "Cash on Delivery", "Same Day Service"]
+  },
+  {
+    icon: Package,
     title: "Wholesale Rates",
-    description: "Genuine wholesale pricing for bulk orders and business customers",
-    features: ["Wholesale Pricing", "Bulk Orders", "Business Support"]
+    description: "Genuine wholesale pricing for both bulk and single buy orders with competitive rates",
+    features: ["Wholesale Pricing", "Bulk & Single Buy", "Business Support"]
   }
 ];
 
@@ -67,30 +74,30 @@ export const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <Card 
               key={index} 
               className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-primary/20"
             >
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-3 group-hover:shadow-lg transition-all duration-300">
-                    <service.icon className="w-6 h-6 text-white" />
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 group-hover:shadow-lg transition-all duration-300">
+                    <service.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-base mb-4">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
-                      <Star className="w-3 h-3 text-primary fill-current" />
-                      <span className="text-xs text-muted-foreground">{feature}</span>
+                      <Star className="w-4 h-4 text-primary fill-current" />
+                      <span className="text-sm text-muted-foreground">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -100,22 +107,23 @@ export const ServicesSection = () => {
         </div>
 
         {/* Trust Indicators */}
+                {/* Trust Indicators */}
         <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="space-y-1">
             <div className="text-2xl md:text-3xl font-bold text-primary">100%</div>
             <div className="text-xs md:text-sm text-muted-foreground">Genuine Products</div>
           </div>
           <div className="space-y-1">
-            <div className="text-2xl md:text-3xl font-bold text-primary">24/7</div>
-            <div className="text-xs md:text-sm text-muted-foreground">Customer Support</div>
+            <div className="text-2xl md:text-3xl font-bold text-primary">13+</div>
+            <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
           </div>
           <div className="space-y-1">
-            <div className="text-2xl md:text-3xl font-bold text-primary">1000+</div>
+            <div className="text-2xl md:text-3xl font-bold text-primary">1M+</div>
             <div className="text-xs md:text-sm text-muted-foreground">Happy Customers</div>
           </div>
           <div className="space-y-1">
-            <div className="text-2xl md:text-3xl font-bold text-primary">5+</div>
-            <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
+            <div className="text-2xl md:text-3xl font-bold text-primary">15+</div>
+            <div className="text-xs md:text-sm text-muted-foreground">Mobile Brands</div>
           </div>
         </div>
       </div>

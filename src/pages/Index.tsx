@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/ui/navigation";
-import { HeroSection } from "@/components/ui/hero-section";
+import { HeroSectionUpdated } from "@/components/ui/hero-section-updated";
 import { ServicesSection } from "@/components/ui/services-section";
 import { PhotoGallery } from "@/components/ui/photo-gallery";
 import { AboutSection } from "@/components/ui/about-section";
@@ -18,9 +18,12 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation onContactClick={scrollToContact} />
       
-      <main>
+      <main className="pt-16 md:pt-16">
+        {/* Additional padding for mobile secondary navbar */}
+        <div className="md:hidden h-12"></div>
+        
         <section id="home">
-          <HeroSection onContactClick={scrollToContact} />
+          <HeroSectionUpdated onContactClick={scrollToContact} />
         </section>
         
         <section id="services">
@@ -35,11 +38,13 @@ const Index = () => {
           <AboutSection />
         </section>
         
-        <section id="facebook">
+        {/* <section id="facebook">
           <FacebookPosts />
-        </section>
+        </section> */}
         
-        <ContactSection />
+        <section id="contact">
+          <ContactSection />
+        </section>
       </main>
 
       {/* Footer */}

@@ -24,8 +24,8 @@ const features = [
   },
   {
     icon: Users,
-    title: "Trusted by Thousands",
-    description: "Over 1000+ satisfied customers trust us for their mobile needs"
+    title: "Trusted by Millions",
+    description: "Over 1M+ satisfied customers trust us for their mobile needs"
   },
   {
     icon: Heart,
@@ -37,21 +37,21 @@ const features = [
 const achievements = [
   {
     icon: Award,
-    number: "5+",
+    number: "13+",
     label: "Years of Excellence",
     description: "Serving Pokhara with dedication"
   },
   {
     icon: Star,
-    number: "1000+",
+    number: "1M+",
     label: "Happy Customers",
     description: "Trust built over years"
   },
   {
     icon: Smartphone,
-    number: "50+",
+    number: "15+",
     label: "Mobile Brands",
-    description: "Complete range available"
+    description: "All major brands available"
   },
   {
     icon: TrendingUp,
@@ -73,8 +73,8 @@ export const AboutSection = () => {
             Why Choose Himal Mobile Traders?
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Located in the heart of Mahendrapool, Pokhara, we've been serving the community 
-            with genuine mobile solutions at wholesale prices for over 5 years.
+            Located in the heart of Pokhara, we've been serving the community 
+            for over 13+ years with genuine mobile solutions and exceptional customer service.
           </p>
         </div>
 
@@ -85,14 +85,14 @@ export const AboutSection = () => {
               key={index} 
               className="text-center group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-primary/20"
             >
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:shadow-glow">
-                  <feature.icon className="w-6 h-6 text-white" />
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow">
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   {feature.description}
                 </p>
               </CardContent>
@@ -148,7 +148,7 @@ export const AboutSection = () => {
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 overflow-hidden border-4 border-primary/20">
                   <img 
                     src="/photos/owner.png" 
-                    alt="Roshan Raj Tiwari Himal - Owner" 
+                    alt="Roshan Raj Tiwari - Owner" 
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -156,13 +156,13 @@ export const AboutSection = () => {
                       const parent = target.parentElement;
                       if (parent) {
                         parent.className += ' bg-primary';
-                        parent.innerHTML = '<span class="text-white font-bold text-lg">RH</span>';
+                        parent.innerHTML = '<span class="text-white font-bold text-lg">RT</span>';
                       }
                     }}
                   />
                 </div>
                 <h4 className="text-xl font-bold text-foreground mb-1">
-                  Roshan Raj Tiwari Himal
+                  Roshan Raj Tiwari
                 </h4>
                 <p className="text-muted-foreground text-sm">Owner & Proprietor</p>
               </div>

@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 import storeFront from "@/assets/store-front.png";
 
+// TikTok Icon Component
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
+  </svg>
+);
+
 export const ContactSection = () => {
   return (
     <section id="contact" className="py-20 bg-muted/50">
@@ -37,7 +44,7 @@ export const ContactSection = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -48,7 +55,7 @@ export const ContactSection = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -69,7 +76,7 @@ export const ContactSection = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
                       <Clock className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -84,11 +91,18 @@ export const ContactSection = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4 mt-8">
-                  <Button className="bg-gradient-primary hover:shadow-glow">
+                  <Button 
+                    className="bg-primary hover:bg-primary/90 text-white"
+                    onClick={() => window.open('tel:9856019988', '_self')}
+                  >
                     <Phone className="w-4 h-4 mr-2" />
                     Call Now
                   </Button>
-                  <Button variant="outline" className="border-primary/20 text-primary hover:bg-primary/5">
+                  <Button 
+                    variant="outline" 
+                    className="border-primary/20 text-primary hover:bg-primary/5"
+                    onClick={() => window.open('https://wa.me/9779856019988', '_blank')}
+                  >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp
                   </Button>
@@ -106,13 +120,30 @@ export const ContactSection = () => {
                       <Facebook className="w-6 h-6 text-blue-600" />
                       <span className="font-medium">Facebook Updates</span>
                     </div>
-                    <Button variant="outline" size="sm">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open('https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr', '_blank')}
+                    >
+                      Follow
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <TikTokIcon className="w-6 h-6 text-black" />
+                      <span className="font-medium">TikTok Videos</span>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open('https://www.tiktok.com/@himal_mobile_traders?_t=ZS-8zTrpojmaD1&_r=1', '_blank')}
+                    >
                       Follow
                     </Button>
                   </div>
                   <div className="bg-muted/30 rounded-lg p-4">
                     <p className="text-sm text-muted-foreground text-center">
-                      Facebook posts and updates will be displayed here
+                      Stay connected with our latest updates and mobile tips
                     </p>
                   </div>
                 </div>
@@ -120,13 +151,18 @@ export const ContactSection = () => {
             </Card>
           </div>
 
-          {/* Store Image */}
+          {/* Pokhara Mobile Tower Image */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant">
               <img 
-                src={storeFront} 
-                alt="Himal Mobile Traders Store Front" 
+                src="/photos/pokhara-mobile-tower.png" 
+                alt="Pokhara Mobile Communication Tower" 
                 className="w-full h-auto object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = storeFront;
+                  target.alt = "Himal Mobile Traders Store Front";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               
@@ -134,9 +170,9 @@ export const ContactSection = () => {
               <div className="absolute bottom-6 left-6 right-6">
                 <Card className="bg-white/90 backdrop-blur-lg border-white/20">
                   <CardContent className="p-4">
-                    <h4 className="font-bold text-foreground mb-1">Himal Mobile Traders</h4>
+                    <h4 className="font-bold text-foreground mb-1">Pokhara Mobile Tower</h4>
                     <p className="text-sm text-muted-foreground">
-                      Your trusted mobile partner in Pokhara
+                      Connected to the heart of mobile technology
                     </p>
                   </CardContent>
                 </Card>

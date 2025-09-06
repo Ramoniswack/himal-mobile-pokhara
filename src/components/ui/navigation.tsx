@@ -85,18 +85,21 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               >
                 Our Services
               </button>
+
+                     <button 
+                onClick={() => scrollToSection('gallery')}
+                className={`transition-colors font-medium ${activeSection === 'gallery' ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'}`}
+              >
+                Photo Gallery
+              </button>
+
               <button 
                 onClick={() => scrollToSection('about')}
                 className={`transition-colors font-medium ${activeSection === 'about' ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'}`}
               >
                 About Us
               </button>
-              <button 
-                onClick={() => scrollToSection('gallery')}
-                className={`transition-colors font-medium ${activeSection === 'gallery' ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'}`}
-              >
-                Photo Gallery
-              </button>
+           
               <button 
                 onClick={() => scrollToSection('contact')}
                 className={`transition-colors font-medium ${activeSection === 'contact' ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'}`}

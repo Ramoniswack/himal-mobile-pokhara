@@ -20,7 +20,7 @@ const Index = () => {
       
       <main className="pt-16 md:pt-16">
         {/* Additional padding for mobile secondary navbar */}
-        <div className="md:hidden h-12"></div>
+        <div className="md:hidden h-14"></div>
         
         <section id="home">
           <HeroSectionUpdated onContactClick={scrollToContact} />

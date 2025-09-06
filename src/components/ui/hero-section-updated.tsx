@@ -141,7 +141,7 @@ export const HeroSectionUpdated = ({ onContactClick }: HeroSectionUpdatedProps) 
             {/* Main Store Image - Bigger and Mobile Responsive */}
             <div className="relative overflow-hidden rounded-2xl shadow-elegant animate-float">
               <img 
-                src="/photos/shop-image.png" 
+                src="/photos/landing.jpeg" 
                 alt="Himal Mobile Traders Store Front" 
                 className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl"
                 onError={(e) => {
@@ -162,27 +162,27 @@ export const HeroSectionUpdated = ({ onContactClick }: HeroSectionUpdatedProps) 
               </div>
             </div>
             
-            {/* EMI Offer - Clean and Simple */}
-            <Card className="mt-4 border-0 p-3 shadow-md" style={{ background: 'linear-gradient(135deg, #FDF0D5 0%, #F4E4BC 100%)' }}>
+            {/* EMI Offer - Clean and Simple - Improved for mobile */}
+            <Card className="mt-4 border-0 p-3 shadow-md relative mb-16 md:mb-4" style={{ background: 'linear-gradient(135deg, #FDF0D5 0%, #F4E4BC 100%)' }}>
               <div className="text-center">
                 <h4 className="font-semibold text-base mb-2 text-red-800">EMI Available</h4>
-                <p className="text-sm text-red-700 mb-2">iPhone with EMI Facility</p>
-                <div className="text-xs text-red-700">
-                  <div>Credit Card: 0% Down Payment</div>
+                <p className="text-sm text-red-700 mb-2">iPhone & Android Phones with EMI Facility</p>
+                <div className="text-xs text-red-700 flex flex-col md:flex-row md:justify-center md:space-x-4">
+                  <div className="mb-1 md:mb-0">Credit Card: 0% Down Payment</div>
                   <div>Without Credit Card: 40% Down Payment</div>
+                </div>
+              </div>
+              
+              {/* Happy Customers stat attached to EMI card */}
+              <div className="absolute left-0 -bottom-7 md:left-auto md:-bottom-6 md:-right-6 bg-white rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-elegant animate-float z-10" style={{ animationDelay: '1s' }}>
+                <div className="text-center">
+                  <div className="text-sm md:text-xl font-bold text-primary">1M+</div>
+                  <div className="text-[10px] md:text-xs text-gray-600 whitespace-nowrap">Happy Customers</div>
                 </div>
               </div>
             </Card>
             
-            {/* Simple Floating Stats - Contained within hero - With Updated Numbers */}
-            <div className="absolute bottom-4 md:bottom-6 -left-2 md:-left-6 bg-white rounded-lg md:rounded-xl p-2 md:p-3 shadow-elegant animate-float z-10" style={{ animationDelay: '1s' }}>
-              <div className="text-center">
-                <div className="text-base md:text-xl font-bold text-primary">1M+</div>
-                <div className="text-xs text-gray-600 whitespace-nowrap">Happy Customers</div>
-              </div>
-            </div>
-            
-            <div className="absolute -top-4 md:-top-6 -right-2 md:-right-6 bg-white rounded-lg md:rounded-xl p-2 md:p-3 shadow-elegant animate-float z-10" style={{ animationDelay: '2s' }}>
+            <div className="absolute -top-4 md:-top-6 right-2 md:-right-6 bg-white rounded-lg md:rounded-xl p-2 md:p-3 shadow-elegant animate-float z-10" style={{ animationDelay: '2s' }}>
               <div className="text-center">
                 <div className="text-base md:text-xl font-bold text-primary">13+</div>
                 <div className="text-xs text-gray-600 whitespace-nowrap">Years Experience</div>

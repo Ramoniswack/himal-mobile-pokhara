@@ -143,44 +143,45 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
 
     {/* Secondary Mobile Navigation Bar */}
     <div className="md:hidden fixed top-16 w-full bg-white/95 backdrop-blur-lg border-b border-border/50 shadow-sm z-40">
-      <div className="w-full px-1">
-        <div className="flex justify-between py-2">
+      <div className="w-full px-2">
+        <div className="flex justify-between py-2 gap-1">
           <button 
             onClick={() => scrollToSection('home')}
-            className={`flex-1 px-1 py-1.5 text-xs font-medium transition-all text-center ${
-              activeSection === 'home' ? 'text-primary bg-primary/10 rounded' : 'text-foreground hover:text-primary hover:bg-primary/10 rounded'
+            className={`flex-1 px-2 py-2 text-xs font-medium transition-all text-center ${
+              activeSection === 'home' ? 'text-primary bg-primary/10 rounded-md' : 'text-foreground hover:text-primary hover:bg-primary/5 rounded-md'
             }`}
           >
             Home
           </button>
           <button 
             onClick={() => scrollToSection('services')}
-            className={`flex-1 px-1 py-1.5 text-xs font-medium transition-all text-center ${
-              activeSection === 'services' ? 'text-primary bg-primary/10 rounded' : 'text-foreground hover:text-primary hover:bg-primary/10 rounded'
+            className={`flex-1 px-2 py-2 text-xs font-medium transition-all text-center ${
+              activeSection === 'services' ? 'text-primary bg-primary/10 rounded-md' : 'text-foreground hover:text-primary hover:bg-primary/5 rounded-md'
             }`}
           >
             Services
           </button>
-          <button 
-            onClick={() => scrollToSection('about')}
-            className={`flex-1 px-1 py-1.5 text-xs font-medium transition-all text-center ${
-              activeSection === 'about' ? 'text-primary bg-primary/10 rounded' : 'text-foreground hover:text-primary hover:bg-primary/10 rounded'
-            }`}
-          >
-            About
-          </button>
-          <button 
+            <button 
             onClick={() => scrollToSection('gallery')}
-            className={`flex-1 px-1 py-1.5 text-xs font-medium transition-all text-center ${
-              activeSection === 'gallery' ? 'text-primary bg-primary/10 rounded' : 'text-foreground hover:text-primary hover:bg-primary/10 rounded'
+            className={`flex-1 px-2 py-2 text-xs font-medium transition-all text-center ${
+              activeSection === 'gallery' ? 'text-primary bg-primary/10 rounded-md' : 'text-foreground hover:text-primary hover:bg-primary/5 rounded-md'
             }`}
           >
             Gallery
           </button>
           <button 
+            onClick={() => scrollToSection('about')}
+            className={`flex-1 px-2 py-2 text-xs font-medium transition-all text-center ${
+              activeSection === 'about' ? 'text-primary bg-primary/10 rounded-md' : 'text-foreground hover:text-primary hover:bg-primary/5 rounded-md'
+            }`}
+          >
+            About
+          </button>
+        
+          <button 
             onClick={() => scrollToSection('contact')}
-            className={`flex-1 px-1 py-1.5 text-xs font-medium transition-all text-center ${
-              activeSection === 'contact' ? 'text-primary bg-primary/10 rounded' : 'text-foreground hover:text-primary hover:bg-primary/10 rounded'
+            className={`flex-1 px-2 py-2 text-xs font-medium transition-all text-center ${
+              activeSection === 'contact' ? 'text-primary bg-primary/10 rounded-md' : 'text-foreground hover:text-primary hover:bg-primary/5 rounded-md'
             }`}
           >
             Contact

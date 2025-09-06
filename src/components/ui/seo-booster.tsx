@@ -62,7 +62,19 @@ export const SeoBooster = () => {
     'iPhone screen replacement price Pokhara',
     'Where to find genuine mobile phones in Pokhara',
     'Best place to buy Samsung phone in Mahendrapool',
-    'Mobile phone installment plans without credit card Nepal'
+    'Mobile phone installment plans without credit card Nepal',
+    
+    // Himal Mobile Traders specific keywords
+    'Himal Mobile Traders Pokhara',
+    'Himal Mobile Traders Mahendrapool',
+    'Himal Mobile phone shop',
+    'Himal Mobile contact number',
+    'Himal Mobile Traders reviews',
+    'Himal Mobile Traders iPhone dealer',
+    'Himal Mobile Traders EMI options',
+    'Himal Mobile Traders location',
+    'Best mobile shop Himal Pokhara',
+    'Himal Mobile shop Nepal'
   ];
 
   // Execute structural data loading

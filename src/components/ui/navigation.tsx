@@ -116,13 +116,18 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                   <p className="text-sm font-medium text-foreground">9856019988</p>
                   <p className="text-xs text-muted-foreground">Call Now</p>
                 </div>
-                <Button 
-                  onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
-                  className="bg-red-600 text-white hover:bg-red-700 transition-all duration-300"
+                <a 
+                  href="https://maps.app.goo.gl/QBKSe6YD7HEovPs49"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Visit Store
-                </Button>
+                  <Button 
+                    className="bg-red-600 text-white hover:bg-red-700 transition-all duration-300"
+                  >
+                    <MapPin className="w-4 h-4 mr-2" />
+                    Visit Store
+                  </Button>
+                </a>
               </div>
 
               {/* Phone and Visit Store for mobile */}
@@ -130,14 +135,19 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 <div className="text-right text-xs">
                   <p className="font-medium text-foreground">9856019988</p>
                 </div>
-                <Button 
-                  onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
-                  size="sm"
-                  className="bg-red-600 text-white hover:bg-red-700 transition-all duration-300 text-xs px-3 py-1"
+                <a 
+                  href="https://maps.app.goo.gl/QBKSe6YD7HEovPs49"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <MapPin className="w-3 h-3 mr-1" />
-                  Visit
-                </Button>
+                  <Button 
+                    size="sm"
+                    className="bg-red-600 text-white hover:bg-red-700 transition-all duration-300 text-xs px-3 py-1"
+                  >
+                    <MapPin className="w-3 h-3 mr-1" />
+                    Visit
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

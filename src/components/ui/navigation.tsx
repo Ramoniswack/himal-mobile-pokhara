@@ -23,8 +23,21 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Phone className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
+              <img 
+                src="/photos/himal-logo-with-bg.png" 
+                alt="Himal Mobile Logo" 
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    parent.className += ' bg-primary';
+                    parent.innerHTML = '<span class="text-white font-bold text-sm">HM</span>';
+                  }
+                }}
+              />
             </div>
             <div>
               <h1 className="font-bold text-xl text-foreground">Himal Mobile</h1>
@@ -45,6 +58,12 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               Services
+            </button>
+            <button 
+              onClick={() => scrollToSection('gallery')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Gallery
             </button>
             <button 
               onClick={() => scrollToSection('about')}
@@ -107,6 +126,12 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 className="text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
               >
                 Services
+              </button>
+              <button 
+                onClick={() => scrollToSection('gallery')}
+                className="text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Gallery
               </button>
               <button 
                 onClick={() => scrollToSection('about')}

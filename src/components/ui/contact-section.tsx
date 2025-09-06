@@ -93,21 +93,27 @@ export const ContactSection = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4 mt-8">
-                  <Button 
-                    className="bg-primary hover:bg-primary/90 text-white"
-                    onClick={() => window.open('tel:9856019988', '_self')}
+                  <a href="tel:9856019988">
+                    <Button 
+                      className="bg-primary hover:bg-primary/90 text-white"
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Call Now
+                    </Button>
+                  </a>
+                  <a 
+                    href="https://wa.me/9779856019988"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Call Now
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="border-primary/20 text-primary hover:bg-primary/5"
-                    onClick={() => window.open('https://wa.me/9779856019988', '_blank')}
-                  >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    WhatsApp
-                  </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-primary/20 text-primary hover:bg-primary/5"
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      WhatsApp
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -122,26 +128,36 @@ export const ContactSection = () => {
                       <Facebook className="w-6 h-6 text-blue-600" />
                       <span className="font-medium">Facebook Updates</span>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => window.open('https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr', '_blank')}
+                    <a 
+                      href='https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Follow
-                    </Button>
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                      >
+                        Follow
+                      </Button>
+                    </a>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                     <div className="flex items-center space-x-3">
                       <Instagram className="w-6 h-6 text-pink-600" />
                       <span className="font-medium">Instagram Photos</span>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => window.open('https://www.instagram.com/himal_mobile_traders_pkr?igsh=MW5udWoxcXdsZTAxaQ==', '_blank')}
+                    <a 
+                      href='https://www.instagram.com/himal_mobile_traders_pkr?igsh=MW5udWoxcXdsZTAxaQ=='
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Follow
-                    </Button>
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                      >
+                        Follow
+                      </Button>
+                    </a>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
                     <div className="flex items-center space-x-3">
@@ -166,14 +182,19 @@ export const ContactSection = () => {
                       <Star className="w-6 h-6 text-yellow-600" />
                       <span className="font-medium">Rate us on Google</span>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white"
-                      onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+                    <a 
+                      href='https://maps.app.goo.gl/QBKSe6YD7HEovPs49'
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Rate Now
-                    </Button>
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white"
+                      >
+                        Rate Now
+                      </Button>
+                    </a>
                   </div>
                   <div className="bg-muted/30 rounded-lg p-4">
                     <p className="text-sm text-muted-foreground text-center">

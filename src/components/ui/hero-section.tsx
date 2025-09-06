@@ -2,12 +2,49 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Phone, MapPin, Clock } from "lucide-react";
 import storeInterior from "@/assets/store-interior.png";
+import { useState, useEffect } from "react";
 
 interface HeroSectionProps {
   onContactClick: () => void;
 }
 
 export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
+  const [storeStatus, setStoreStatus] = useState<{isOpen: boolean, message: string}>({
+    isOpen: false,
+    message: "Checking..."
+  });
+
+  useEffect(() => {
+    const checkStoreHours = () => {
+      const now = new Date();
+      const day = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      const currentTime = hour * 60 + minute; // Convert to minutes
+
+      let isOpen = false;
+      let message = "";
+
+      if (day === 6) { // Saturday
+        const openTime = 10 * 60; // 10:00 AM
+        const closeTime = 18 * 60 + 30; // 6:30 PM
+        isOpen = currentTime >= openTime && currentTime <= closeTime;
+        message = isOpen ? "Open Today" : "Closed Today";
+      } else { // Sunday to Friday
+        const openTime = 8 * 60 + 30; // 8:30 AM
+        const closeTime = 19 * 60 + 30; // 7:30 PM
+        isOpen = currentTime >= openTime && currentTime <= closeTime;
+        message = isOpen ? "Open Today" : "Closed Today";
+      }
+
+      setStoreStatus({ isOpen, message });
+    };
+
+    checkStoreHours();
+    // Update every minute
+    const interval = setInterval(checkStoreHours, 60000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="relative min-h-screen bg-primary overflow-hidden">
       {/* Background Pattern */}
@@ -19,7 +56,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
       <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
       <div className="absolute bottom-32 left-16 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 py-8 md:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-white space-y-8">
@@ -34,7 +71,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 हिमाल मोबाइल ट्रेडर्स
               </div>
               <p className="text-xl lg:text-2xl text-white/95 max-w-lg drop-shadow-md">
-                Your trusted mobile phone destination in Mahendrapool, Pokhara
+                Your trusted mobile phone destination in Pokhara
               </p>
             </div>
 
@@ -44,7 +81,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                 <div className="w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/30 overflow-hidden bg-white/10">
                   <img 
                     src="/photos/owner.png" 
-                    alt="Roshan Raj Tiwari Himal - Owner" 
+                    alt="Roshan Raj Tiwari - Owner" 
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -58,7 +95,7 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-lg drop-shadow-sm">Roshan Raj Tiwari Himal</h3>
+                  <h3 className="text-white font-semibold text-lg drop-shadow-sm">Roshan Raj Tiwari</h3>
                   <p className="text-white/85 drop-shadow-sm">Owner & Proprietor</p>
                 </div>
               </div>
@@ -87,12 +124,14 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
             {/* Quick Info */}
             <div className="flex flex-wrap gap-6 text-white/95">
               <div className="flex items-center space-x-2 drop-shadow-sm">
-                <Clock className="w-5 h-5" />
-                <span>Open 7 Days</span>
+                <Clock className={`w-5 h-5 ${storeStatus.isOpen ? 'text-green-300' : 'text-red-300'}`} />
+                <span className={storeStatus.isOpen ? 'text-green-300' : 'text-red-300'}>
+                  {storeStatus.message}
+                </span>
               </div>
               <div className="flex items-center space-x-2 drop-shadow-sm">
                 <MapPin className="w-5 h-5" />
-                <span>Mahendrapool, Pokhara</span>
+                <span>Pokhara</span>
               </div>
             </div>
           </div>
@@ -119,34 +158,34 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               {/* Store Name Overlay */}
               <div className="absolute bottom-4 left-4 text-white">
                 <h3 className="text-lg md:text-xl font-bold drop-shadow-lg">हिमाल मोबाइल ट्रेडर्स</h3>
-                <p className="text-xs md:text-sm opacity-90 drop-shadow-md">Mahendrapool, Pokhara</p>
+                <p className="text-xs md:text-sm opacity-90 drop-shadow-md">Pokhara</p>
               </div>
             </div>
             
-            {/* Special Offers Banner - Mobile Responsive */}
-            <Card className="mt-4 border-0 p-3 md:p-4 shadow-lg transform hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, #FDF0D5 0%, #F4E4BC 100%)' }}>
+            {/* EMI UPDATED - Your Requirements */}
+            <div className="mt-4 bg-orange-50 border-2 border-orange-200 rounded-lg p-4">
               <div className="text-center">
-                <h4 className="font-bold text-base md:text-lg mb-1 text-red-800">Special Offers!</h4>
-                <p className="text-xs md:text-sm text-red-700 mb-2">iPhone 16 Series with EMI</p>
-                <div className="flex justify-center space-x-2 text-xs">
-                  <span className="bg-red-100 text-red-800 px-2 md:px-3 py-1 rounded font-medium border border-red-200">0% Interest</span>
-                  <span className="bg-red-100 text-red-800 px-2 md:px-3 py-1 rounded font-medium border border-red-200">Free Case</span>
+                <h4 className="font-bold text-lg text-orange-900 mb-2">EMI Available</h4>
+                <p className="text-base text-orange-800 mb-3">iPhone with EMI Facility</p>
+                <div className="text-sm text-orange-700 space-y-1">
+                  <div className="font-semibold">Credit Card: 0% Down Payment</div>
+                  <div className="font-semibold">Without Credit Card: 40% Down Payment</div>
                 </div>
               </div>
-            </Card>
+            </div>
             
-            {/* Simple Floating Stats - Better Mobile Responsive */}
-            <div className="absolute -bottom-3 md:-bottom-6 -left-2 md:-left-6 bg-white rounded-lg md:rounded-xl p-2 md:p-4 shadow-elegant animate-float" style={{ animationDelay: '1s' }}>
+            {/* FORCED UPDATE - New Numbers */}
+            <div className="absolute bottom-4 md:bottom-6 -left-2 md:-left-6 bg-blue-500 rounded-lg md:rounded-xl p-3 shadow-lg animate-float z-10" style={{ animationDelay: '1s' }}>
               <div className="text-center">
-                <div className="text-base md:text-2xl font-bold text-primary">1000+</div>
-                <div className="text-xs md:text-sm text-gray-600">Happy Customers</div>
+                <div className="text-xl font-bold text-white">1M+</div>
+                <div className="text-xs text-white whitespace-nowrap">Happy Customers</div>
               </div>
             </div>
             
-            <div className="absolute -top-3 md:-top-6 -right-2 md:-right-6 bg-white rounded-lg md:rounded-xl p-2 md:p-4 shadow-elegant animate-float" style={{ animationDelay: '2s' }}>
+            <div className="absolute -top-4 md:-top-6 -right-2 md:-right-6 bg-green-500 rounded-lg md:rounded-xl p-3 shadow-lg animate-float z-10" style={{ animationDelay: '2s' }}>
               <div className="text-center">
-                <div className="text-base md:text-2xl font-bold text-primary">5+</div>
-                <div className="text-xs md:text-sm text-gray-600">Years Experience</div>
+                <div className="text-xl font-bold text-white">13+</div>
+                <div className="text-xs text-white whitespace-nowrap">Years Experience</div>
               </div>
             </div>
           </div>

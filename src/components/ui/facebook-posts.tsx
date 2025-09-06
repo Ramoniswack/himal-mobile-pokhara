@@ -1,372 +1,233 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
-  MessageCircle, 
-  Share,
-  Facebook,
-  ExternalLink,
-  Loader2,
-  ChevronLeft,
-  ChevronRight,
-  Star,
-  Play
-} from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import React from 'react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Heart, MessageCircle, Share, Facebook, ExternalLink, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 
-// TikTok Icon Component
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
-  </svg>
-);
-
-// Google Icon Component
-const GoogleIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-  </svg>
-);
-
-interface FacebookPostProps {
-  id?: string;
+interface FacebookPost {
+  id: string;
   type: 'photo' | 'video' | 'status';
   caption: string;
   likes: number;
   comments: number;
   shares: number;
   timestamp: string;
-  postUrl?: string;
   imageUrl?: string;
-  created_time?: string;
+  postUrl: string;
 }
 
-// Helper function to calculate relative time
-const getRelativeTime = (dateString: string): string => {
-  const now = new Date();
-  const postDate = new Date(dateString);
-  const diffInSeconds = Math.floor((now.getTime() - postDate.getTime()) / 1000);
-  
-  if (diffInSeconds < 60) return 'Just now';
-  if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
-  if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
-  if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} days ago`;
-  return postDate.toLocaleDateString();
-};
-
-const FacebookPostCard = ({ type, caption, likes, comments, shares, timestamp, postUrl, imageUrl }: FacebookPostProps) => {
-  const openPost = () => {
-    if (postUrl) {
-      window.open(postUrl, '_blank');
-    }
-  };
-
-  return (
-    <Card className="flex-shrink-0 w-80 border-primary/20 hover:shadow-elegant transition-all duration-300 bg-card">
-      <CardContent className="p-0">
-        {(type === 'photo' || type === 'video') && (
-          <div className="relative aspect-video overflow-hidden rounded-t-lg bg-muted/20">
-            {type === 'photo' ? (
-              <div className="w-full h-full bg-primary flex items-center justify-center relative">
-                {imageUrl ? (
-                  <img 
-                    src={imageUrl} 
-                    alt="Facebook post" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const parent = target.parentElement;
-                      if (parent) {
-                        parent.innerHTML = '<div class="text-center text-white p-4"><div class="text-lg font-semibold">📱</div><span class="text-sm">Facebook Photo Post</span></div>';
-                      }
-                    }}
-                  />
-                ) : (
-                  <div className="text-center text-white p-8">
-                    <div className="text-2xl mb-2">📱</div>
-                    <span className="text-sm">Facebook Photo Post</span>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="w-full h-full bg-secondary flex items-center justify-center relative">
-                <div className="text-center text-white p-8">
-                  <Play className="w-12 h-12 mx-auto mb-2" />
-                  <span className="text-sm">Facebook Video</span>
-                </div>
-                {postUrl && (
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer" onClick={openPost}>
-                    <Play className="w-16 h-16 text-white opacity-80" />
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-        
-        <div className="p-4 space-y-3">
-          <div className="flex items-center space-x-2 mb-3">
-            <div className="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center">
-              <Facebook className="w-4 h-4 text-white" />
-            </div>
-            <div>
-              <p className="font-semibold text-sm">Himal Mobile Traders</p>
-              <p className="text-xs text-muted-foreground">{timestamp}</p>
-            </div>
-          </div>
-          
-          <p className="text-sm text-foreground leading-relaxed line-clamp-3">{caption}</p>
-          
-          <div className="flex items-center justify-between text-sm text-muted-foreground pt-2 border-t border-border/50">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1">
-                <Heart className="w-4 h-4 text-primary" />
-                <span>{likes}</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <MessageCircle className="w-4 h-4" />
-                <span>{comments}</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Share className="w-4 h-4" />
-                <span>{shares}</span>
-              </div>
-            </div>
-          </div>
-
-          {postUrl && (
-            <Button
-              size="sm"
-              className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-white"
-              onClick={openPost}
-            >
-              View on Facebook
-              <ExternalLink className="w-3 h-3 ml-1" />
-            </Button>
-          )}
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
-
 export const FacebookPosts = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState<FacebookPostProps[]>([]);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const posts: FacebookPost[] = [
+    {
+      id: '1',
+      type: 'photo',
+      caption: '🎉 Dashain Festival Special Offers! 📱\n\n✨ Get incredible discounts on iPhone 15 series\n✨ Samsung Galaxy S24 Ultra with EMI facility\n✨ Free screen protector & case with every purchase\n\nVisit us at Mahendrapool, Pokhara! 🏪',
+      likes: 234,
+      comments: 67,
+      shares: 45,
+      timestamp: '3 hours ago',
+      imageUrl: '/photos/shop-image.png',
+      postUrl: 'https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
+    },
+    {
+      id: '2',
+      type: 'status',
+      caption: '📢 NEW ARRIVALS ALERT! 📢\n\n🔥 iPhone 15 Pro Max - Latest Stock\n🔥 Samsung Galaxy S24 Ultra 1TB\n🔥 Google Pixel 8 Pro\n🔥 OnePlus 12 Series\n\n💳 Easy EMI available\n🛡️ Official warranty\n🚚 Home delivery in Pokhara',
+      likes: 289,
+      comments: 94,
+      shares: 67,
+      timestamp: '1 day ago',
+      postUrl: 'https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
+    },
+    {
+      id: '3',
+      type: 'photo',
+      caption: '🌟 Customer Testimonial! 🌟\n\n"Best mobile shop in Pokhara! Excellent service, genuine products, and very helpful staff. Got my iPhone 15 Pro with amazing EMI facility. Highly recommended!" - Satisfied Customer\n\nThank you for trusting Himal Mobile Traders! 🙏',
+      likes: 156,
+      comments: 28,
+      shares: 22,
+      timestamp: '2 days ago',
+      imageUrl: '/photos/employee-family.png',
+      postUrl: 'https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
+    },
+    {
+      id: '4',
+      type: 'photo',
+      caption: '🔧 Professional Phone Repair Services! 🔧\n\n• Screen replacement\n• Battery replacement\n• Water damage repair\n• Software issues\n• Hardware troubleshooting\n\nQuick, reliable, and affordable! Call us: 9856019988',
+      likes: 187,
+      comments: 43,
+      shares: 29,
+      timestamp: '3 days ago',
+      imageUrl: '/photos/employee-family2.png',
+      postUrl: 'https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
+    },
+    {
+      id: '5',
+      type: 'status',
+      caption: '🏆 5+ Years of Trust in Pokhara! 🏆\n\nServing 1000+ happy customers with:\n✅ Genuine mobile phones\n✅ Professional repair services\n✅ Competitive prices\n✅ EMI facilities\n✅ Official warranties\n\nYour trust is our success! 🙏',
+      likes: 312,
+      comments: 78,
+      shares: 56,
+      timestamp: '5 days ago',
+      postUrl: 'https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
+    }
+  ];
+
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
     }
   };
 
-  // Fetch real Facebook posts from JSON data
-  useEffect(() => {
-    const loadFacebookPosts = async () => {
-      setIsLoading(true);
-      
-      try {
-        // Fetch from local JSON file (this can be updated with real Facebook data)
-        const response = await fetch('/data/facebook-posts.json');
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch Facebook posts');
-        }
-        
-        const postsData = await response.json();
-        
-        // Process posts and calculate relative timestamps
-        const processedPosts: FacebookPostProps[] = postsData.map((post: any) => ({
-          ...post,
-          timestamp: post.created_time ? getRelativeTime(post.created_time) : post.timestamp
-        }));
-        
-        // Sort by creation time (newest first)
-        const sortedPosts = processedPosts.sort((a, b) => {
-          const timeA = a.created_time ? new Date(a.created_time).getTime() : 0;
-          const timeB = b.created_time ? new Date(b.created_time).getTime() : 0;
-          return timeB - timeA;
-        });
-        
-        setPosts(sortedPosts.slice(0, 4)); // Show only the latest 4 posts
-        
-      } catch (error) {
-        console.error('Error fetching Facebook posts:', error);
-        
-        // Fallback to static posts if fetch fails
-        const fallbackPosts: FacebookPostProps[] = [
-          {
-            type: 'status',
-            caption: '📱 Unable to load latest Facebook posts. Please visit our Facebook page directly for the most recent updates!\n\nHimal Mobile Traders\nMahendrapool, Pokhara\n📞 9856019988, 9802855855',
-            likes: 0,
-            comments: 0,
-            shares: 0,
-            timestamp: 'Error loading',
-            postUrl: 'https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr'
-          }
-        ];
-        
-        setPosts(fallbackPosts);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadFacebookPosts();
-    
-    // Refresh posts every 5 minutes
-    const interval = setInterval(loadFacebookPosts, 5 * 60 * 1000);
-    
-    return () => clearInterval(interval);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <section className="py-20 bg-secondary/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary/10 text-primary">
-              <Facebook className="w-4 h-4 mr-2" />
-              Social Media
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-              Latest from Our Store
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Stay updated with our latest arrivals, offers, and behind-the-scenes content
-            </p>
-          </div>
-          
-          <div className="flex items-center justify-center py-20">
-            <div className="text-center">
-              <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
-              <p className="text-muted-foreground">Loading Facebook posts...</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="py-20 bg-secondary/5">
+    <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <Badge className="mb-4 bg-blue-600 text-white">
             <Facebook className="w-4 h-4 mr-2" />
-            Social Media
+            Latest Updates
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Latest from Our Store
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">
+            Recent Facebook Posts
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Stay updated with our latest arrivals, offers, and behind-the-scenes content
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Stay updated with our latest offers, arrivals, and customer stories
           </p>
+          {/* Follow button removed - Already exists in contact section */}
         </div>
 
-        {/* Horizontal Scrolling Posts */}
-        <div className="relative mb-12">
+        {/* Scrolling Posts Container */}
+        <div className="relative">
           {/* Scroll Buttons */}
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg border-primary/20"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg border-2 hover:bg-gray-50"
             onClick={scrollLeft}
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </Button>
           
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg border-primary/20"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg border-2 hover:bg-gray-50"
             onClick={scrollRight}
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </Button>
 
-          {/* Scrollable Container */}
+          {/* Posts Scroll Container */}
           <div 
-            ref={scrollRef}
-            className="flex space-x-6 overflow-x-auto scrollbar-hide px-12 py-4"
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto pb-4 px-12 scrollbar-hide"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {posts.map((post, index) => (
-              <FacebookPostCard key={index} {...post} />
+            {posts.map((post) => (
+              <Card key={post.id} className="flex-none w-80 h-[600px] bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+                <CardHeader className="pb-3 flex-shrink-0">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                      <Facebook className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Himal Mobile Traders</p>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {post.timestamp}
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                
+                <CardContent className="flex flex-col flex-grow p-4">
+                  {/* Post Image - Fixed height */}
+                  <div className="mb-4 flex-shrink-0">
+                    {post.imageUrl ? (
+                      <div className="rounded-lg overflow-hidden">
+                        <img 
+                          src={post.imageUrl} 
+                          alt="Facebook post" 
+                          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center">
+                        <div className="text-center text-blue-600">
+                          <Facebook className="w-12 h-12 mx-auto mb-2" />
+                          <p className="text-sm font-medium">Text Post</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Post Content - Fixed height for consistency */}
+                  <div className="mb-4 h-24 overflow-hidden flex-shrink-0">
+                    <p className="text-gray-700 text-sm leading-relaxed line-clamp-6">{post.caption}</p>
+                  </div>
+                  
+                  {/* Bottom section - Fixed at bottom */}
+                  <div className="mt-auto flex-shrink-0">
+                    {/* Engagement Stats */}
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-100 mb-4">
+                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                        <div className="flex items-center space-x-1 hover:text-red-500 transition-colors cursor-pointer">
+                          <Heart className="w-4 h-4" />
+                          <span>{post.likes}</span>
+                        </div>
+                        <div className="flex items-center space-x-1 hover:text-blue-500 transition-colors cursor-pointer">
+                          <MessageCircle className="w-4 h-4" />
+                          <span>{post.comments}</span>
+                        </div>
+                        <div className="flex items-center space-x-1 hover:text-green-500 transition-colors cursor-pointer">
+                          <Share className="w-4 h-4" />
+                          <span>{post.shares}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* View Post Button - Always at bottom */}
+                    <a 
+                      href={post.postUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full"
+                    >
+                      <Button
+                        size="sm"
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                      >
+                        <ExternalLink className="w-3 h-3 mr-2" />
+                        View on Facebook
+                      </Button>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
 
-        {/* Social Media Links */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Card className="border-primary/20 hover:shadow-elegant transition-all duration-300">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-[#1877F2] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Facebook className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Follow us on Facebook</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Join over 1,000+ happy customers in Pokhara!
-              </p>
-              <Button 
-                className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-white"
-                onClick={() => window.open('https://www.facebook.com/share/1FeENz2VEv/?mibextid=wwXIfr', '_blank')}
-              >
-                <Facebook className="w-4 h-4 mr-2" />
-                Follow Page
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-primary/20 hover:shadow-elegant transition-all duration-300">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                <TikTokIcon className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Follow us on TikTok</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Watch our mobile tips and tricks videos!
-              </p>
-              <Button 
-                className="w-full bg-black hover:bg-gray-800 text-white"
-                onClick={() => window.open('https://www.tiktok.com/@himal_mobile_traders?_t=ZS-8zTrpojmaD1&_r=1', '_blank')}
-              >
-                <TikTokIcon className="w-4 h-4 mr-2" />
-                Follow Us
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="border-primary/20 hover:shadow-elegant transition-all duration-300">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <GoogleIcon className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Rate us on Google</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Share your experience with us!
-              </p>
-              <Button 
-                className="w-full bg-primary hover:bg-primary/90 text-white"
-                onClick={() => window.open('https://www.google.com/search?q=Himal+Mobile+Traders+Pokhara', '_blank')}
-              >
-                <Star className="w-4 h-4 mr-2" />
-                Rate Us
-              </Button>
-            </CardContent>
-          </Card>
+        {/* Bottom CTA */}
+        <div className="text-center mt-12">
+          <p className="text-gray-600 mb-4">Want to see more updates?</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Contact Us
+            </Button>
+          </div>
         </div>
       </div>
     </section>

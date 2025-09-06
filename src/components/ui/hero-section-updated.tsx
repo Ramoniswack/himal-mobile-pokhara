@@ -111,14 +111,19 @@ export const HeroSectionUpdated = ({ onContactClick }: HeroSectionUpdatedProps) 
                 <Phone className="w-5 h-5 mr-2" />
                 Contact Us
               </Button>
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/95 shadow-lg font-semibold px-8 py-3 transition-all duration-300 transform hover:scale-105"
-                onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+              <a 
+                href="https://maps.app.goo.gl/QBKSe6YD7HEovPs49"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <MapPin className="w-5 h-5 mr-2" />
-                Visit Store
-              </Button>
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-white/95 shadow-lg font-semibold px-8 py-3 transition-all duration-300 transform hover:scale-105"
+                >
+                  <MapPin className="w-5 h-5 mr-2" />
+                  Visit Store
+                </Button>
+              </a>
             </div>
 
             {/* Quick Info */}

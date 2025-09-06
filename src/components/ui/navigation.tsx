@@ -85,30 +85,48 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             </button>
           </div>
 
-          {/* Contact Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="text-right">
-              <p className="text-sm font-medium text-foreground">9856019988</p>
-              <p className="text-xs text-muted-foreground">Call Now</p>
+          {/* Contact Button and Mobile Elements */}
+          <div className="flex items-center space-x-4">
+            {/* Phone and Visit Store for desktop */}
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="text-right">
+                <p className="text-sm font-medium text-foreground">9856019988</p>
+                <p className="text-xs text-muted-foreground">Call Now</p>
+              </div>
+              <Button 
+                onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+                className="bg-red-600 text-white hover:bg-red-700 transition-all duration-300"
+              >
+                <MapPin className="w-4 h-4 mr-2" />
+                Visit Store
+              </Button>
             </div>
-            <Button 
-              onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
-              className="bg-primary text-white hover:bg-primary/90 transition-all duration-300"
+
+            {/* Phone and Visit Store for mobile */}
+            <div className="flex md:hidden items-center space-x-2">
+              <div className="text-right text-xs">
+                <p className="font-medium text-foreground">9856019988</p>
+              </div>
+              <Button 
+                onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
+                size="sm"
+                className="bg-red-600 text-white hover:bg-red-700 transition-all duration-300 text-xs px-3 py-1"
+              >
+                <MapPin className="w-3 h-3 mr-1" />
+                Visit
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden p-1"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <MapPin className="w-4 h-4 mr-2" />
-              Visit Store
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
         </div>
 
         {/* Mobile Menu */}
@@ -152,14 +170,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 Contact
               </button>
               <div className="pt-4 border-t border-border/50">
-                <p className="text-sm font-medium text-foreground mb-1">9856019988 | 9802855855</p>
-                <Button 
-                  onClick={() => window.open('https://maps.app.goo.gl/QBKSe6YD7HEovPs49', '_blank')}
-                  className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300"
-                >
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Visit Store
-                </Button>
+                <p className="text-sm font-medium text-foreground mb-2">Call: 9856019988 | 9802855855</p>
               </div>
             </div>
           </div>

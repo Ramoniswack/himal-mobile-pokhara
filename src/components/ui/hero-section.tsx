@@ -135,17 +135,17 @@ export const HeroSection = ({ onContactClick }: HeroSectionProps) => {
               </div>
             </Card>
             
-            {/* Simple Floating Stats - Mobile Responsive */}
-            <div className="absolute -bottom-4 md:-bottom-6 -left-3 md:-left-6 bg-white rounded-xl p-2 md:p-4 shadow-elegant animate-float" style={{ animationDelay: '1s' }}>
+            {/* Simple Floating Stats - Better Mobile Responsive */}
+            <div className="absolute -bottom-3 md:-bottom-6 -left-2 md:-left-6 bg-white rounded-lg md:rounded-xl p-2 md:p-4 shadow-elegant animate-float" style={{ animationDelay: '1s' }}>
               <div className="text-center">
-                <div className="text-lg md:text-2xl font-bold text-primary">1000+</div>
+                <div className="text-base md:text-2xl font-bold text-primary">1000+</div>
                 <div className="text-xs md:text-sm text-gray-600">Happy Customers</div>
               </div>
             </div>
             
-            <div className="absolute -top-4 md:-top-6 -right-3 md:-right-6 bg-white rounded-xl p-2 md:p-4 shadow-elegant animate-float" style={{ animationDelay: '2s' }}>
+            <div className="absolute -top-3 md:-top-6 -right-2 md:-right-6 bg-white rounded-lg md:rounded-xl p-2 md:p-4 shadow-elegant animate-float" style={{ animationDelay: '2s' }}>
               <div className="text-center">
-                <div className="text-lg md:text-2xl font-bold text-primary">5+</div>
+                <div className="text-base md:text-2xl font-bold text-primary">5+</div>
                 <div className="text-xs md:text-sm text-gray-600">Years Experience</div>
               </div>
             </div>

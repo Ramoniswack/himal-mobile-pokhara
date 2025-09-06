@@ -52,45 +52,45 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary hover:bg-primary/20">
+        <div className="text-center mb-10 md:mb-12">
+          <Badge className="mb-3 bg-primary/10 text-primary hover:bg-primary/20">
             Our Services
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             Complete Mobile Solutions
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             From buying the latest smartphones to professional repairs, we offer comprehensive mobile services 
             at genuine wholesale rates in Pokhara
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <Card 
               key={index} 
               className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-border/50 hover:border-primary/20"
             >
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4 group-hover:shadow-lg transition-all duration-300">
-                    <service.icon className="w-8 h-8 text-white" />
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-3 group-hover:shadow-lg transition-all duration-300">
+                    <service.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-sm">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
-                      <Star className="w-4 h-4 text-primary fill-current" />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
+                      <Star className="w-3 h-3 text-primary fill-current" />
+                      <span className="text-xs text-muted-foreground">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -100,22 +100,22 @@ export const ServicesSection = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-primary">100%</div>
-            <div className="text-sm text-muted-foreground">Genuine Products</div>
+        <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="space-y-1">
+            <div className="text-2xl md:text-3xl font-bold text-primary">100%</div>
+            <div className="text-xs md:text-sm text-muted-foreground">Genuine Products</div>
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-primary">24/7</div>
-            <div className="text-sm text-muted-foreground">Customer Support</div>
+          <div className="space-y-1">
+            <div className="text-2xl md:text-3xl font-bold text-primary">24/7</div>
+            <div className="text-xs md:text-sm text-muted-foreground">Customer Support</div>
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-primary">1000+</div>
-            <div className="text-sm text-muted-foreground">Happy Customers</div>
+          <div className="space-y-1">
+            <div className="text-2xl md:text-3xl font-bold text-primary">1000+</div>
+            <div className="text-xs md:text-sm text-muted-foreground">Happy Customers</div>
           </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-primary">5+</div>
-            <div className="text-sm text-muted-foreground">Years Experience</div>
+          <div className="space-y-1">
+            <div className="text-2xl md:text-3xl font-bold text-primary">5+</div>
+            <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
           </div>
         </div>
       </div>

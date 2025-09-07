@@ -40,8 +40,8 @@ const services = [
   {
     icon: CreditCard,
     title: "EMI Facilities",
-    description: "Buy your dream phone with easy EMI options - 0% down payment with credit card or 40% down payment without credit card",
-    features: ["Credit Card: 0% Down", "No Credit Card: 40% Down", "Flexible Terms"]
+    description: "Buy your dream phone with easy EMI options at 0% interest- choose zero down payment with a credit card or 40% down payment without one.",
+    features: ["0% Interest Rate", "Credit Card: 0% Down", "No Credit Card: 40% Down", "Flexible Terms"]
   },
   {
     icon: Truck,

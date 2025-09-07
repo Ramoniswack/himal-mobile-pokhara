@@ -173,13 +173,15 @@ export const HeroSectionUpdated = ({ onContactClick }: HeroSectionUpdatedProps) 
                 <h4 className="font-semibold text-base mb-2 text-red-800">EMI Available</h4>
                 <p className="text-sm text-red-700 mb-2">iPhone & Android Phones with EMI Facility</p>
                 <div className="text-xs text-red-700 flex flex-col md:flex-row md:justify-center md:space-x-4">
+                <div> <span className="text-sm text-red-700 mb-2">0%</span> Interest Rate</div>
+
                   <div className="mb-1 md:mb-0">Credit Card: 0% Down Payment</div>
                   <div>Without Credit Card: 40% Down Payment</div>
                 </div>
               </div>
               
               {/* Happy Customers stat attached to EMI card */}
-              <div className="absolute left-0 -bottom-7 md:left-auto md:-bottom-6 md:-right-6 bg-white rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-elegant animate-float z-10" style={{ animationDelay: '1s' }}>
+              <div className="absolute left-0 -bottom-11 md:left-auto md:-bottom-6 md:-right-6 bg-white rounded-lg md:rounded-xl p-1.5 md:p-3 shadow-elegant animate-float z-10" style={{ animationDelay: '1s' }}>
                 <div className="text-center">
                   <div className="text-sm md:text-xl font-bold text-primary">1M+</div>
                   <div className="text-[10px] md:text-xs text-gray-600 whitespace-nowrap">Happy Customers</div>
